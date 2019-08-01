@@ -103,6 +103,82 @@ log_con_address_temp = '''2. Перенос сервиса {service}{sub}
 - Сообщить в ОЛИ СПД об освободившемся порте на коммутаторе {kad} после переезда клиента.'''
 
 
+log_con_pps_pto_csw_temp = '''Перенос логического подключения клиента {client_name}
+------------------------------------------------------------------------------------------
+
+ОИПМ подготовиться к работам:
+- Согласовать проведение работ - ППР {ppr}.
+- Создать заявку в Cordis на ОНИТС СПД для изменения логического подключения клиента.
+
+ОИПМ проведение работ:
+- Организовать ВОЛС от {AB_new} до клиента по решению ОАТТР.
+- Установить на стороне АВ конвертер 1310 нм, выставить на конвертере режим работы 100 FD Force.
+- Подключить организованную линию для клиента в коммутатор {kad_new}, задействовать свободный порт.
+Старый порт: {client_port} коммутатора {client_kad}.
+Новый порт: свободный порт коммутатора {kad_new}.
+- Совместно с ОНИТС СПД убедиться в восстановлении связи у клиента.
+
+
+ОНИТС СПД подготовка к работам:
+- По заявке в Cordis подготовить настройки на оборудовании к переносу клиентского коммутатора".
+
+ОНИТС СПД проведение работ:
+- Совместно с монтажниками перенести логическое подключение клиентского коммутатора на {AB_new}.
+- Актуализировать информацию в Cordis и на оборудовании.
+- Сообщить в ОЛИ СПД об освободившемся порте на {AB_last}. '''
+
+
+
+log_con_pps_pto_vols_temp = '''Перенос логического подключения клиента {client_name}
+------------------------------------------------------------------------------------------
+
+ОИПМ подготовиться к работам:
+- Согласовать проведение работ - ППР {ppr}.
+- Создать заявку в Cordis на ОНИТС СПД для изменения трассы подключения клиента.
+
+ОИПМ проведение работ:
+- Организовать ВОЛС от {AB_new} до клиента по решению ОАТТР.
+- Установить на стороне АВ конвертер 1310 нм, выставить на конвертере режим работы 100 FD Force.
+- Подключить организованную линию для клиента в коммутатор {kad_new}, задействовать свободный порт.
+Старый порт: {client_port} коммутатора {client_kad}.
+Новый порт: свободный порт коммутатора {kad_new}.
+- Совместно с ОНИТС СПД убедиться в восстановлении связи у клиента.
+
+
+ОНИТС СПД подготовка к работам:
+- По заявке в Cordis подготовить настройки на оборудовании к переносу сервиса {service}{rek1}"{client_subnet}".
+
+ОНИТС СПД проведение работ:
+- Совместно с монтажниками перенести логическое подключение клиента на {AB_new}.
+- Актуализировать информацию в Cordis и на оборудовании.
+- Сообщить в ОЛИ СПД об освободившемся порте на {AB_last}. '''
+
+
+log_con_pps_pto_med_temp = '''Перенос логического подключения клиента {client_name}
+------------------------------------------------------------------------------------------
+
+ОИПМ подготовиться к работам:
+- Согласовать проведение работ - ППР {ppr}.
+- Создать заявку в Cordis на ОНИТС СПД для изменения трассы подключения клиента.
+
+ОИПМ проведение работ:
+- Организовать медную линию связи от {AB_new} до клиента по решению ОПППС.
+- Подключить организованную линию для клиента в коммутатор, установленный по решению выше, задействовать свободный порт.
+Старый порт: {client_port} коммутатора {client_kad}.
+Новый порт: свободный порт коммутатора, установленного по решению выше.
+- Совместно с ОНИТС СПД убедиться в восстановлении связи у клиента.
+- Демонтировать медиаконвертеры с обоих сторон. 
+
+
+ОНИТС СПД подготовка к работам:
+- По заявке в Cordis подготовить настройки на оборудовании к переносу сервиса {service}{rek1}"{client_subnet}".
+
+ОНИТС СПД проведение работ:
+- Совместно с монтажниками перенести логическое подключение клиента на {AB_new}.
+- Актуализировать информацию в Cordis и на оборудовании.
+- Сообщить в ОЛИ СПД об освободившемся порте на {AB_last}. '''
+
+
 log_con_32_temp = '''2. Перенос сервиса {service}{sub}
 ------------------------------------------------------------------------------------------
 
@@ -123,6 +199,48 @@ log_con_32_temp = '''2. Перенос сервиса {service}{sub}
 - После смены реквизитов:
 - разобрать ресурс {client_subnet} на договоре.
 - актуализировать информацию в системах учета.
+- Сообщить в ОЛИ СПД об освободившемся порте на коммутаторе {kad} после переезда клиента.'''
+
+
+smena_schem = '''Изменение существующей cхемы организации ШПД с маской {prev_mask} на подсеть с маской {next_mask}
+------------------------------------------------------------------------------------------
+
+МСРКБ:
+- Согласовать с клиентом:
+- необходимость смены реквизитов;
+- необходимость перерыва связи на время проведения работ.
+- Создать заявку на ОНИТС СПД для смены реквизитов.
+
+ОНИТС СПД подготовиться к работам:
+- По заявке в Cordis выделить подсеть с маской {next_mask}.
+- Логическое подключение клиента не изменится.
+
+ОНИТС СПД проведение работ:
+- По согласованию с клиентом сменить реквизиты на новую подсеть с маской {next_mask}.
+- Убедиться в восстановлении связи у клиента.
+- После смены реквизитов:
+- разобрать ресурс "{network}" на договоре.
+- актуализировать информацию в системах учета.'''
+
+
+pass_smena_schem_temp = '''2. Перенос сервиса "ШПД в интернет" и изменение существующей cхемы организации ШПД с маской {prev_mask} на подсеть с маской {next_mask}
+------------------------------------------------------------------------------------------
+
+МСРКБ:
+- Согласовать с клиентом:
+- необходимость смены реквизитов;
+- необходимость перерыва связи на время проведения работ.
+- Создать заявку в Cordis на ОНИТС СПД для переноса сервиса "ШПД в интернет" и смены реквизитов. В заявке Cordis указать время проведения работ по переносу сервиса.
+
+
+ОНИТС СПД подготовиться к работам:
+- По заявке в Cordis выделить подсеть с маской {next_mask}.
+- Логическое подключение клиента изменится.
+
+ОНИТС СПД проведение работ:
+- По согласованию с клиентом сменить реквизиты на новую подсеть с маской {next_mask}.
+- Убедиться в восстановлении связи у клиента.
+- После переезда клиента разобрать ресурс "{network}" на договоре и актуализировать информацию в системах учета.
 - Сообщить в ОЛИ СПД об освободившемся порте на коммутаторе {kad} после переезда клиента.'''
 
 
@@ -187,8 +305,13 @@ AB_last = clear_AB(input('АВ от которого включен клиент
 
 data_client = 'Клиент {client_name} в точке подключения {client_address} подключен от {AB_last}, коммутатор {client_kad}, порт {client_port} и потребляет услугу {service}{rek1}"{client_subnet}".'.format(client_name=client_name, client_address=client_address, client_kad=client_kad, client_port=client_port, client_subnet=client_subnet, AB_last=AB_last, service=service[client_serv][0], rek1=service[client_serv][1])
 
+schema = ['со статики на DHCP', 'с DHCP на статику']
 new_address = ['в пределах здания', 'на адрес']
-move = input('1-в пределах здания, 2-новый адрес, 3-переключение на 1G: ')
+move = input('1-в пределах здания, 2-новый адрес, 3-переключение на 1G, 4-cо статики на DHCP, 5-перенос лог подключ: ')
+yesno = ['y', 'n', 'н', 'т']
+yes = ['y', 'н']
+no = ['n', 'т']
+
 
 if move=='1':
     kuda = 'Требуется перенести точку подключения клиента {}.'.format(new_address[0])
@@ -203,42 +326,102 @@ if move=='1':
         total = no_log_con_vols.format(service=service[client_serv][0], AB_last=AB_last, rek1=service[client_serv][1], client_subnet=client_subnet, sub=service[client_serv][2])
 elif move=='2':
     address = input('Новый адрес: ').strip()
-    kuda = 'Требуется перенести точку подключения клиента {}'.format(new_address[1])+' '+address+'.'
+    smena_shpd = input('Требуется смена схемы ШПД? ')
+    while smena_shpd not in yesno:
+        print('only y/n:')
+        smena_shpd = input('Требуется смена схемы ШПД? ')
+    if smena_shpd in no:
+        kuda = 'Требуется перенести точку подключения клиента {}'.format(new_address[1])+' '+address+'.'
 
-    env = input('1-Медь, 2-Оптика: ')
-    if env == '1':
-        AB_new = clear_AB(input('Новый АВ: '))
-        kad_new = input('Новый КАД: ').strip()
-        med = med_temp.format(AB_new=AB_new, kad_new=kad_new)
-        title_med = med[:med.index('---')]
-        if client_subnet[-3:] == '/32':
-            log_con_32 = log_con_32_temp.format(kad=client_kad, client_subnet=client_subnet, service=service[client_serv][0], sub=service[client_serv][2])
-            title_log_con_32 = log_con_32[:log_con_32.index('---')]
-            total = title_med+title_log_con_32+'\n\n'+med+'\n\n'+log_con_32
-        else:
-            log_con_address = log_con_address_temp.format(service=service[client_serv][0], rek1=service[client_serv][1], client_subnet=client_subnet, sub=service[client_serv][2], kad=client_kad)
-            title_log_con_address = log_con_address[:log_con_address.index('---')]
-            total = title_med+title_log_con_address+'\n\n'+med+'\n\n'+log_con_address
-    elif env == '2':
-        AB_new = clear_AB(input('Новый АВ: '))
-        kad_new = input('Новый КАД: ').strip()
-        vols = vols_temp.format(AB_new=AB_new, kad_new=kad_new)
-        title_vols = vols[:vols.index('---')]
-        if client_subnet[-3:] == '/32':
-            log_con_32 = log_con_32_temp.format(kad=client_kad ,client_subnet=client_subnet, service=service[client_serv][0], sub=service[client_serv][2])
-            title_log_con_32 = log_con_32[:log_con_32.index('---')]
-            total = title_vols+title_log_con_32+'\n\n'+vols+'\n\n'+log_con_32
-        else:
-            log_con_address = log_con_address_temp.format(service=service[client_serv][0], rek1=service[client_serv][1], client_subnet=client_subnet, sub=service[client_serv][2], kad=client_kad)
-            title_log_con_address = log_con_address[:log_con_address.index('---')]
-            total = title_vols+title_log_con_address+'\n\n'+vols+'\n\n'+log_con_address
+        env = input('1-Медь, 2-Оптика: ')
+        if env == '1':
+            AB_new = clear_AB(input('Новый АВ: '))
+            kad_new = input('Новый КАД: ').strip()
+            med = med_temp.format(AB_new=AB_new, kad_new=kad_new)
+            title_med = med[:med.index('---')]
+            if client_subnet[-3:] == '/32':
+                log_con_32 = log_con_32_temp.format(kad=client_kad, client_subnet=client_subnet, service=service[client_serv][0], sub=service[client_serv][2])
+                title_log_con_32 = log_con_32[:log_con_32.index('---')]
+                total = title_med+title_log_con_32+'\n\n'+med+'\n\n'+log_con_32
+            else:
+                log_con_address = log_con_address_temp.format(service=service[client_serv][0], rek1=service[client_serv][1], client_subnet=client_subnet, sub=service[client_serv][2], kad=client_kad)
+                title_log_con_address = log_con_address[:log_con_address.index('---')]
+                total = title_med+title_log_con_address+'\n\n'+med+'\n\n'+log_con_address
+        elif env == '2':
+            AB_new = clear_AB(input('Новый АВ: '))
+            kad_new = input('Новый КАД: ').strip()
+            vols = vols_temp.format(AB_new=AB_new, kad_new=kad_new)
+            title_vols = vols[:vols.index('---')]
+            if client_subnet[-3:] == '/32':
+                log_con_32 = log_con_32_temp.format(kad=client_kad ,client_subnet=client_subnet, service=service[client_serv][0], sub=service[client_serv][2])
+                title_log_con_32 = log_con_32[:log_con_32.index('---')]
+                total = title_vols+title_log_con_32+'\n\n'+vols+'\n\n'+log_con_32
+            else:
+                log_con_address = log_con_address_temp.format(service=service[client_serv][0], rek1=service[client_serv][1], client_subnet=client_subnet, sub=service[client_serv][2], kad=client_kad)
+                title_log_con_address = log_con_address[:log_con_address.index('---')]
+                total = title_vols+title_log_con_address+'\n\n'+vols+'\n\n'+log_con_address
+    if smena_shpd in yes:
+        kuda = 'Требуется перенести точку подключения клиента {}'.format(new_address[1])+' '+address+' и изменить схему организации ШПД.'
+
+        env = input('1-Медь, 2-Оптика: ')
+        if env == '1':
+            AB_new = clear_AB(input('Новый АВ: '))
+            kad_new = input('Новый КАД: ').strip()
+            med = med_temp.format(AB_new=AB_new, kad_new=kad_new)
+            title_med = med[:med.index('---')]
+            if client_subnet[-3:] == '/32':
+                result = pass_smena_schem_temp.format(kad=client_kad, prev_mask='/32', next_mask='/30', network=client_subnet)
+                title_result = result[:result.index('---')]
+                total = title_med+title_result+'\n\n'+med+'\n\n'+result
+            else:
+                result = pass_smena_schem_temp.format(kad=client_kad, prev_mask='/30', next_mask='/32', network=client_subnet)
+                title_result = result[:result.index('---')]
+                total = title_med+title_result+'\n\n'+med+'\n\n'+result
+        elif env == '2':
+            AB_new = clear_AB(input('Новый АВ: '))
+            kad_new = input('Новый КАД: ').strip()
+            vols = vols_temp.format(AB_new=AB_new, kad_new=kad_new)
+            title_vols = vols[:vols.index('---')]
+            if client_subnet[-3:] == '/32':
+                result = pass_smena_schem_temp.format(kad=client_kad, prev_mask='/32', next_mask='/30', network=client_subnet)
+                title_result = result[:result.index('---')]
+                total = title_vols+title_result+'\n\n'+vols+'\n\n'+result
+            else:
+                result = pass_smena_schem_temp.format(kad=client_kad, prev_mask='/30', next_mask='/32', network=client_subnet)
+                title_result = result[:result.index('---')]
+                total = title_vols+title_result+'\n\n'+vols+'\n\n'+result
+
 elif move == '3':
     speed = input('Новая скорость: ').strip()
     port_new = input('Новый порт: ').strip()
     total = client_1G_temp.format(service=service[client_serv][0], rek1=service[client_serv][1], kad=client_kad, AB_last=AB_last, speed=speed, port_new=port_new, client_port=client_port, client_subnet=client_subnet)
     kuda = 'Требуется в данной точке увеличить скорость ШПД до {} Мбит/с.'.format(speed)
 
+elif move == '4':
+    if client_subnet[-3:] == '/30':
+        kuda = 'Требуется в данной точке изменить схему организации ШПД {}'.format(schema[0])
+        total = smena_schem.format(prev_mask='/30', next_mask='/32', network=client_subnet)
+    else:
+        kuda = 'Требуется в данной точке изменить схему организации ШПД {}'.format(schema[1])
+        total = smena_schem.format(prev_mask='/32', next_mask='/30', network=client_subnet) 
 
+if move=='5':
+    env = input('1-Медь, 2-Оптика: ')
+    AB_new = clear_AB(input('Новый АВ: '))
+    kad_new = input('Новый КАД: ').strip()
+    ppr = input('ППР# ').strip()
+    kuda = 'Требуется перенести логическое подключение клиента на {AB_new}.'.format(AB_new=AB_new)
+    if env == '1':
+        total = log_con_pps_pto_med_temp.format(service=service[client_serv][0], rek1=service[client_serv][1], client_subnet=client_subnet, sub=service[client_serv][2], client_name=client_name, client_kad=client_kad, client_port=client_port, AB_last=AB_last, AB_new=AB_new, ppr=ppr)
+    elif env == '2':
+        if client_kad.startswith('CSW'):
+            agr = input('1-без смены агрегации, 2-со сменой агрегации')
+            if agr == '1':
+                total = log_con_pps_pto_csw_temp.format(client_name=client_name, client_kad=client_kad, client_port=client_port, AB_last=AB_last, AB_new=AB_new, kad_new=kad_new, ppr=ppr)
+            elif agr == '2':
+                pass
+        else:
+            total = log_con_pps_pto_vols_temp.format(service=service[client_serv][0], rek1=service[client_serv][1], client_subnet=client_subnet, sub=service[client_serv][2], client_name=client_name, client_kad=client_kad, client_port=client_port, AB_last=AB_last, AB_new=AB_new, kad_new=kad_new, ppr=ppr)
 print('\n'*2)
 print(data_client)
 print('\n')
